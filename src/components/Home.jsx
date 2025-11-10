@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi"; // أيقونات الهامبرجر وإغلاق
 // صور الخلفية مستوحاة من إيطاليا
 const images = [
@@ -48,43 +49,48 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "Chi Siamo", path: "/about" },
+    { name: "Progetti", path: "/projects" },
 
+  ];
   return (
     <div className="bg-[#0a0a0a] text-white font-[Poppins] overflow-hidden">
       {/* ====== Header ====== */}
       {/* ====== Header ====== */}
-     <header className="fixed z-50 flex items-center justify-between w-full px-6 py-4 transition-all duration-500 bg-transparent backdrop-blur-sm">
-      
-      {/* Logo */}
-      <img
-        src="/assets/photo_5800903862616001287_y-removebg-preview.png"
-        alt="EDIL TECH Logo"
-        className="object-contain w-32 h-32"
-      />
+      <header className="fixed z-50 flex items-center justify-between w-full px-6 py-4 transition-all duration-500 bg-transparent backdrop-blur-sm">
 
-      {/* Navigation - Desktop */}
-      <nav className="hidden space-x-10 text-base tracking-wider text-gray-300 uppercase md:flex">
-        <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
-        <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
-        <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
-      </nav>
+        {/* Logo */}
+        <img
+          src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+          alt="EDIL TECH Logo"
+          className="object-contain w-32 h-32"
+        />
 
-      {/* Hamburger Icon - Mobile */}
-      <div className="md:hidden">
-        <button onClick={toggleMenu} className="text-3xl text-gray-300 focus:outline-none">
-          {isOpen ? <HiX /> : <HiMenu />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-4 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
-          <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
-          <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
-          <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
+        {/* Navigation - Desktop */}
+        <nav className="hidden space-x-10 text-base tracking-wider text-gray-300 uppercase md:flex">
+          <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
+          <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
+          <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
         </nav>
-      )}
-    </header>
+
+        {/* Hamburger Icon - Mobile */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-3xl text-gray-300 focus:outline-none">
+            {isOpen ? <HiX /> : <HiMenu />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-4 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
+            <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
+            <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
+            <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
+          </nav>
+        )}
+      </header>
 
 
       {/* ====== Hero Slider ====== */}
@@ -106,17 +112,17 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-    <h2 className="mb-6 text-5xl font-bold leading-tight text-white md:text-7xl">
-  Trasforma i tuoi spazi con <br />
-  <span className="font-extrabold drop-shadow-lg">
-  <span className="text-[#136dc2]">Edil</span>
-  <span className="text-[#e63946]"> Tech</span>
-</span>
+          <h2 className="mb-6 text-5xl font-bold leading-tight text-white md:text-7xl">
+            Trasforma i tuoi spazi con <br />
+            <span className="font-extrabold drop-shadow-lg">
+              <span className="text-[#136dc2]">Edil</span>
+              <span className="text-[#e63946]"> Tech</span>
+            </span>
 
-</h2>
-<p className="max-w-2xl mx-auto text-lg text-gray-300 md:text-xl">
-  Strutture solide, design moderno e dettagli di lusso — costruiamo spazi che durano nel tempo.
-</p>
+          </h2>
+          <p className="max-w-2xl mx-auto text-lg text-gray-300 md:text-xl">
+            Strutture solide, design moderno e dettagli di lusso — costruiamo spazi che durano nel tempo.
+          </p>
 
           <p className="max-w-2xl mx-auto mb-10 text-lg text-gray-300 md:text-xl">
             Da oltre dieci anni realizziamo ristrutturazioni e progetti edilizi di alta qualità.
@@ -231,9 +237,9 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ====== Footer ====== */}
       <footer className="px-6 text-gray-400 bg-black py-14 md:px-16">
         <div className="grid gap-10 md:grid-cols-3">
+          {/* About */}
           <div>
             <h4 className="mb-4 text-2xl font-bold text-red-500">Edil Tech</h4>
             <p className="text-sm leading-relaxed">
@@ -241,16 +247,25 @@ export default function Home() {
               per ambienti moderni e confortevoli.
             </p>
           </div>
+
+          {/* Pages */}
           <div>
             <h5 className="mb-3 font-semibold text-white">Pagine</h5>
             <ul className="space-y-2">
-              {["Home", "Chi Siamo", "Progetti", "Contatti"].map((p, i) => (
+              {pages.map((page, i) => (
                 <li key={i}>
-                  <a href="/" className="transition-all hover:text-red-500">{p}</a>
+                  <Link
+                    to={page.path}
+                    className="transition-all hover:text-red-500"
+                  >
+                    {page.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
+
+          {/* Contacts */}
           <div>
             <h5 className="mb-3 font-semibold text-white">Contatti</h5>
             <p>📍Via Raffaello Sanzio,4 20098 San Giuliano Milanese (MI)</p>
@@ -259,8 +274,9 @@ export default function Home() {
             <p>📧 ediltechismail@legalmail.it</p>
             <p className="mt-3 text-sm text-gray-400">EDIL TECH di Ismail Ashraf</p>
           </div>
-
         </div>
+
+        {/* Copyright */}
         <div className="pt-5 mt-10 text-sm text-center text-gray-600 border-t border-gray-700">
           © 2025 Edil Tech – Tutti i diritti riservati.
         </div>

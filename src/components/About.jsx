@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import {  FaWhatsapp } from "react-icons/fa";
 import {  AnimatePresence } from "framer-motion";
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
@@ -279,9 +279,8 @@ export default function ChiSiamo() {
       {/* ===== Footer ===== */}
       <footer className="py-10 text-center bg-black border-t border-gray-800">
         <div className="flex justify-center mb-4 space-x-6 text-gray-400">
-          <a href="https://facebook.com" className="text-xl hover:text-red-500"><FaFacebook /></a>
-          <a href="https://instagram.com" className="text-xl hover:text-red-500"><FaInstagram /></a>
-          <a href="https://wa.me/201234567890" className="text-xl hover:text-red-500"><FaWhatsapp /></a>
+        
+          <a href="https://wa.me/+39 345 11 085 82" className="text-xl hover:text-red-500"><FaWhatsapp /></a>
         </div>
         <p className="text-sm text-gray-500">
           © 2025 Edil Tech — Ristrutturazioni di Qualità e Design Italiano
