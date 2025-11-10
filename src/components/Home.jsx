@@ -268,9 +268,9 @@ export default function Home() {
           {/* Contacts */}
           <div>
             <h5 className="mb-3 font-semibold text-white">Contatti</h5>
-            <p>📍Via Raffaello Sanzio,4 20098 San Giuliano Milanese (MI)</p>
+            <p>📍 Via Raffaello Sanzio, 4 – 20098 San Giuliano Milanese (MI)</p>
             <p>📞 +39 345 11 085 82</p>
-            <p>📧 ediltech@gmail.com</p>
+            <p>📧 <a href="mailto:contact@ediltechis.com" className="hover:text-red-500">contact@ediltechis.com</a></p>
             <p>📧 ediltechismail@legalmail.it</p>
             <p className="mt-3 text-sm text-gray-400">EDIL TECH di Ismail Ashraf</p>
           </div>
@@ -281,6 +281,7 @@ export default function Home() {
           © 2025 Edil Tech – Tutti i diritti riservati.
         </div>
       </footer>
+
     </div>
   );
 }
