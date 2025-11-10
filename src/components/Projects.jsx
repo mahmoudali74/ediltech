@@ -37,31 +37,18 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-white font-[Poppins] overflow-hidden">
       {/* ===== Header ===== */}
-      <header className="sticky top-0 z-50 flex items-center justify-between px-10 py-6 shadow-md bg-black/60 backdrop-blur-md">
-        <div className="flex items-center gap-3">
+      <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
+        <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
           <img
             src="\assets\photo_5800903862616001287_y-removebg-preview.png"
-            alt="Edil Tech Logo"
-            className="object-contain w-16 h-16"
+            alt="EDIL TECH Logo"
+            className="object-contain w-32 h-32"
           />
-          <h1 className="text-3xl font-extrabold tracking-wide">
-            <span className="text-[#e63946]">Edil</span>
-            <span className="text-[#1e3a8a]"> Tech</span>
-          </h1>
+
+    
         </div>
-        <nav className="hidden gap-10 text-lg font-semibold text-gray-300 uppercase md:flex">
-          <a href="/" className="hover:text-[#e63946] transition-all">
-            Home
-          </a>
-          <a href="/about" className="hover:text-[#1e3a8a] transition-all">
-            Chi Siamo
-          </a>
-          <a href="/projects" className="hover:text-[#e63946] transition-all">
-            Progetti
-          </a>
-        
-        </nav>
       </header>
+
 
       {/* ===== Slider ===== */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">

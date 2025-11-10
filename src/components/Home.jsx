@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-
+import { HiMenu, HiX } from "react-icons/hi"; // أيقونات الهامبرجر وإغلاق
 // صور الخلفية مستوحاة من إيطاليا
 const images = [
   "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1400",
@@ -39,7 +39,9 @@ const services = [
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => setIsOpen(!isOpen);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -51,22 +53,38 @@ export default function Home() {
     <div className="bg-[#0a0a0a] text-white font-[Poppins] overflow-hidden">
       {/* ====== Header ====== */}
       {/* ====== Header ====== */}
-      <header className="fixed z-50 flex items-center justify-between w-full px-10 py-4 transition-all duration-500 bg-transparent backdrop-blur-sm">
+     <header className="fixed z-50 flex items-center justify-between w-full px-6 py-4 transition-all duration-500 bg-transparent backdrop-blur-sm">
+      
+      {/* Logo */}
+      <img
+        src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+        alt="EDIL TECH Logo"
+        className="object-contain w-32 h-32"
+      />
 
-        {/* Logo */}
-        <img
-  src="\assets\photo_5800903862616001287_y-removebg-preview.png"
-  alt="EDIL TECH Logo"
-  className="object-contain w-32 h-32"
-/>
+      {/* Navigation - Desktop */}
+      <nav className="hidden space-x-10 text-base tracking-wider text-gray-300 uppercase md:flex">
+        <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
+        <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
+        <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
+      </nav>
 
-        {/* Navigation */}
-        <nav className="hidden space-x-10 text-base tracking-wider text-gray-300 uppercase md:flex">
-          <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
-          <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
-          <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
+      {/* Hamburger Icon - Mobile */}
+      <div className="md:hidden">
+        <button onClick={toggleMenu} className="text-3xl text-gray-300 focus:outline-none">
+          {isOpen ? <HiX /> : <HiMenu />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-4 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
+          <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
+          <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
+          <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
         </nav>
-      </header>
+      )}
+    </header>
 
 
       {/* ====== Hero Slider ====== */}
