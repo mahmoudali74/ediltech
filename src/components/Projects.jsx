@@ -16,10 +16,13 @@ const images = [
   "/assets/WhatsApp Image 2025-11-10 at 12.47.40 AM.jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.32.14 AM.jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.47.41 AM (1).jpeg",
-  "/assets/WhatsApp Image 2025-11-10 at 12.47.41 AM (2).jpeg",
-  "/assets/WhatsApp Image 2025-11-10 at 12.47.41 AM.jpeg",
-  "/assets/WhatsApp Image 2025-11-10 at 12.47.42 AM (1).jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 1.21.11 AM (1).jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 1.21.09 AM (1).jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 1.21.10 AM (1).jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.47.42 AM.jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM.jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM (3).jpeg",
+  "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM (2).jpeg",
 
 ];
 
@@ -37,17 +40,15 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-white font-[Poppins] overflow-hidden">
       {/* ===== Header ===== */}
-      <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
-        <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
-          <img
-            src="\assets\photo_5800903862616001287_y-removebg-preview.png"
-            alt="EDIL TECH Logo"
-            className="object-contain w-32 h-32"
-          />
-
-    
-        </div>
-      </header>
+<header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
+  <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
+    <img
+      src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+      alt="EDIL TECH Logo"
+      className="object-contain w-16 h-16" // ← تم تصغير اللوجو من 32 إلى 16
+    />
+  </div>
+</header>
 
 
       {/* ===== Slider ===== */}
@@ -66,7 +67,7 @@ export default function Gallery() {
         <div className="relative z-10 text-center">
           <h2 className="mb-4 text-6xl font-extrabold">
             <span className="text-[#e63946]">Our</span>{" "}
-            <span className="text-[#1e3a8a]">Gallery</span>
+            <span className="text-[#e63946]">Gallery</span>
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-300">
             Scopri i nostri migliori progetti e trasformazioni uniche.
@@ -78,7 +79,7 @@ export default function Gallery() {
       <section className="py-20 px-6 md:px-16 bg-[#111]">
         <h3 className="text-4xl font-bold text-center mb-14">
           <span className="text-[#e63946]">Collezione</span>{" "}
-          <span className="text-[#1e3a8a]">Visiva</span>
+          <span className="text-[#e63946]">Visiva</span>
         </h3>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

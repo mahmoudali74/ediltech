@@ -57,40 +57,39 @@ export default function Home() {
   ];
   return (
     <div className="bg-[#0a0a0a] text-white font-[Poppins] overflow-hidden">
-      {/* ====== Header ====== */}
-      {/* ====== Header ====== */}
-      <header className="fixed z-50 flex items-center justify-between w-full px-6 py-4 transition-all duration-500 bg-transparent backdrop-blur-sm">
+<header className="fixed z-50 flex items-center justify-between w-full px-3 py-1 transition-all duration-500 bg-transparent backdrop-blur-sm">
 
-        {/* Logo */}
-        <img
-          src="/assets/photo_5800903862616001287_y-removebg-preview.png"
-          alt="EDIL TECH Logo"
-          className="object-contain w-32 h-32"
-        />
+  {/* Logo */}
+  <img
+    src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+    alt="EDIL TECH Logo"
+    className="object-contain w-14 h-14" // صغرنا من 20 لـ 14
+  />
 
-        {/* Navigation - Desktop */}
-        <nav className="hidden space-x-10 text-base tracking-wider text-gray-300 uppercase md:flex">
-          <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
-          <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
-          <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
-        </nav>
+  {/* Navigation - Desktop */}
+  <nav className="hidden space-x-6 text-sm tracking-wider text-gray-300 uppercase md:flex">
+    <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
+    <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
+    <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
+  </nav>
 
-        {/* Hamburger Icon - Mobile */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-3xl text-gray-300 focus:outline-none">
-            {isOpen ? <HiX /> : <HiMenu />}
-          </button>
-        </div>
+  {/* Hamburger Icon - Mobile */}
+  <div className="md:hidden">
+    <button onClick={toggleMenu} className="text-2xl text-gray-300 focus:outline-none">
+      {isOpen ? <HiX /> : <HiMenu />}
+    </button>
+  </div>
 
-        {/* Mobile Menu */}
-        {isOpen && (
-          <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-4 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
-            <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
-            <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
-            <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
-          </nav>
-        )}
-      </header>
+  {/* Mobile Menu */}
+  {isOpen && (
+    <nav className="absolute left-0 flex flex-col items-center w-full py-2 space-y-2 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
+      <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
+      <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
+      <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
+    </nav>
+  )}
+</header>
+
 
 
       {/* ====== Hero Slider ====== */}
@@ -179,7 +178,7 @@ export default function Home() {
 
       {/* ====== Services ====== */}
       <section className="bg-[#111] py-24 px-6 md:px-16 text-center">
-        <h3 className="text-4xl font-bold text-white mb-14">
+        <h3 className="text-4xl font-bold text-red-500 mb-14">
           I Nostri <span className="text-red-500">Servizi</span>
         </h3>
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">

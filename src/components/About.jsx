@@ -14,22 +14,29 @@ export default function ChiSiamo() {
   return (
     <div className="bg-[#0a0a0a] text-gray-200 font-[Poppins] overflow-hidden">
       {/* ===== Header ===== */}
-      <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
-        <div className="flex items-center justify-between px-6 py-4 mx-auto max-w-7xl">
-          <img
-            src="\assets\photo_5800903862616001287_y-removebg-preview.png"
-            alt="EDIL TECH Logo"
-            className="object-contain w-32 h-32"
-          />
+{/* ===== Header ===== */}
+<header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
+  <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
+    <img
+      src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+      alt="EDIL TECH Logo"
+      className="object-contain w-16 h-16" // ← صغرنا اللوجو من 32 لـ 16
+    />
 
-          <nav className="space-x-6 text-sm tracking-wide uppercase">
-            <Link to="/" className="transition hover:text-red-500">Home</Link>
-            <Link to="/about" className="text-red-500">Chi Siamo</Link>
-            <Link to="/projects" className="transition hover:text-red-500">Progetti</Link>
+    <nav className="space-x-5 text-xs tracking-wider text-gray-300 uppercase">
+      <Link to="/" className="transition duration-200 hover:text-red-500">
+        Home
+      </Link>
+      <Link to="/about" className="text-red-500 transition duration-200">
+        Chi Siamo
+      </Link>
+      <Link to="/projects" className="transition duration-200 hover:text-red-500">
+        Progetti
+      </Link>
+    </nav>
+  </div>
+</header>
 
-          </nav>
-        </div>
-      </header>
 
       {/* ===== Hero ===== */}
       <section className="relative flex items-center justify-center h-screen bg-fixed bg-center bg-cover"
