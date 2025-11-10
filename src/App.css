@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-dark text-light font-sans;
+}
+
+h1, h2, h3 {
+  @apply font-display text-primary;
+}
+
+section {
+  @apply py-20 px-6 md:px-16;
+}
+.animated-bg {
+  background: linear-gradient(-45deg, #ffffff, #e6eef7, #cfd8e3, #a2b3c9);
+  background-size: 400% 400%;
+  animation: gradientMove 18s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

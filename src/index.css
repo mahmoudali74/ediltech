@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-dark text-light font-sans;
+}
+
+h1, h2, h3 {
+  @apply font-display text-primary;
+}
+
+section {
+  @apply py-20 px-6 md:px-16;
+}
