@@ -39,57 +39,93 @@ const services = [
 
 ];
 
-export default function Home() {
-  const [current, setCurrent] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+export default function Home() {
+  const [current, setCurrent] = useState(0); // Slider index
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu
+  const [hidden, setHidden] = useState(false); // Hide header on scroll
+
+  const images = [
+    "/assets/hero1.jpg",
+    "/assets/hero2.jpg",
+    "/assets/hero3.jpg",
+  ]; // مثال للصور
+
+  const pages = [
+    { name: "Home", path: "/" },
+    { name: "Chi Siamo", path: "/about" },
+    { name: "Progetti", path: "/projects" },
+  ];
+
+  // ===== Slider interval =====
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
-  const pages = [
-    { name: "Home", path: "/" },
-    { name: "Chi Siamo", path: "/about" },
-    { name: "Progetti", path: "/projects" },
+  }, [images.length]);
 
-  ];
+  // ===== Toggle mobile menu =====
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  // ===== Hide header on scroll =====
+  useEffect(() => {
+    let lastScroll = 0;
+
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        // Scroll down → hide
+        setHidden(true);
+      } else {
+        // Scroll up → show
+        setHidden(false);
+      }
+
+      lastScroll = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div className="bg-[#0a0a0a] text-white font-[Poppins] overflow-hidden">
-<header className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-3 md:px-10">
-  {/* Logo */}
-  <img
-    src="/assets/photo_5800903862616001287_y-removebg-preview.png"
-    alt="EDIL TECH Logo"
-    className="object-contain select-none w-28 h-28 md:w-36 md:h-36"
-  />
+      <header
+        className={`fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-3 md:px-10 transition-all duration-500 
+        bg-black/40 backdrop-blur-md border-b border-white/10 
+        ${hidden ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"}`}
+      >
+        {/* Logo */}
+        <img
+          src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+          alt="EDIL TECH Logo"
+          className="object-contain transition-all duration-700 select-none w-28 h-28 md:w-36 md:h-36"
+        />
 
-  {/* Navigation - Desktop */}
-  <nav className="hidden space-x-8 text-base font-medium tracking-wider text-white uppercase md:flex drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-    <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
-    <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
-    <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
-  </nav>
+        {/* Navigation - Desktop */}
+        <nav className="hidden space-x-8 text-base font-medium tracking-wider text-white uppercase md:flex drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
+          <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
+          <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
+        </nav>
 
-  {/* Hamburger Icon - Mobile */}
-  <div className="md:hidden">
-    <button onClick={toggleMenu} className="text-3xl text-white drop-shadow-lg focus:outline-none">
-      {isOpen ? <HiX /> : <HiMenu />}
-    </button>
-  </div>
+        {/* Hamburger Icon - Mobile */}
+        <div className="md:hidden">
+          <button onClick={toggleMenu} className="text-3xl text-white drop-shadow-lg focus:outline-none">
+            {isOpen ? <HiX /> : <HiMenu />}
+          </button>
+        </div>
 
-  {/* Mobile Menu */}
-  {isOpen && (
-    <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-3 text-lg text-white uppercase bg-black/90 top-full md:hidden">
-      <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
-      <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
-      <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
-    </nav>
-  )}
-</header>
-
+        {/* Mobile Menu */}
+        {isOpen && (
+          <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-3 text-lg text-white uppercase bg-black/90 top-full md:hidden">
+            <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
+            <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
+            <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
+          </nav>
+        )}
+      </header>
 
 
       {/* ====== Hero Slider ====== */}
@@ -275,21 +311,21 @@ export default function Home() {
             {/* رقم الهاتف */}
             <p className="flex items-center gap-2">
               📞 +39 345 11 085 82
-              <a
-                href="https://wa.me/393451108582"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-500 transition hover:text-green-400"
-              >
-                <FaWhatsapp size={20} />
-              </a>
+
             </p>
 
             <p>
               📧 <a href="mailto:contact@ediltechis.com" className="hover:text-red-500">contact@ediltechis.com</a>
             </p>
             <p>📧 ediltechismail@legalmail.it</p>
-
+            <a
+              href="https://wa.me/393919195587"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-500 transition hover:text-green-400"
+            >
+              <FaWhatsapp size={30} />
+            </a>
             <p className="mt-3 text-sm text-gray-400">EDIL TECH di Ismail Ashraf</p>
           </div>
         </div>
