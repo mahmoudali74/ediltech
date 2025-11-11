@@ -45,11 +45,7 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false); // Mobile menu
   const [hidden, setHidden] = useState(false); // Hide header on scroll
 
-  const images = [
-    "/assets/hero1.jpg",
-    "/assets/hero2.jpg",
-    "/assets/hero3.jpg",
-  ]; // مثال للصور
+
 
   const pages = [
     { name: "Home", path: "/" },
