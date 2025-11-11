@@ -2,8 +2,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {  FaWhatsapp } from "react-icons/fa";
-import {  AnimatePresence } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
+import { AnimatePresence } from "framer-motion";
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
@@ -14,28 +14,28 @@ export default function ChiSiamo() {
   return (
     <div className="bg-[#0a0a0a] text-gray-200 font-[Poppins] overflow-hidden">
       {/* ===== Header ===== */}
-{/* ===== Header ===== */}
-<header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
-  <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
-    <img
-      src="/assets/photo_5800903862616001287_y-removebg-preview.png"
-      alt="EDIL TECH Logo"
-      className="object-contain w-16 h-16" // ← صغرنا اللوجو من 32 لـ 16
-    />
+      {/* ===== Header ===== */}
+      <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
+        <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
+          <img
+            src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+            alt="EDIL TECH Logo"
+            className="object-contain w-16 h-16" // ← صغرنا اللوجو من 32 لـ 16
+          />
 
-    <nav className="space-x-5 text-xs tracking-wider text-gray-300 uppercase">
-      <Link to="/" className="transition duration-200 hover:text-red-500">
-        Home
-      </Link>
-      <Link to="/about" className="text-red-500 transition duration-200">
-        Chi Siamo
-      </Link>
-      <Link to="/projects" className="transition duration-200 hover:text-red-500">
-        Progetti
-      </Link>
-    </nav>
-  </div>
-</header>
+          <nav className="space-x-5 text-xs tracking-wider text-gray-300 uppercase">
+            <Link to="/" className="transition duration-200 hover:text-red-500">
+              Home
+            </Link>
+            <Link to="/about" className="text-red-500 transition duration-200">
+              Chi Siamo
+            </Link>
+            <Link to="/projects" className="transition duration-200 hover:text-red-500">
+              Progetti
+            </Link>
+          </nav>
+        </div>
+      </header>
 
 
       {/* ===== Hero ===== */}
@@ -286,8 +286,16 @@ export default function ChiSiamo() {
       {/* ===== Footer ===== */}
       <footer className="py-10 text-center bg-black border-t border-gray-800">
         <div className="flex justify-center mb-4 space-x-6 text-gray-400">
-        
-          <a href="https://wa.me/+39 345 11 085 82" className="text-xl hover:text-red-500"><FaWhatsapp /></a>
+
+          <a
+            href="https://wa.me/393451108582"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl text-green-500 transition hover:text-red-500"
+          >
+            <FaWhatsapp />
+          </a>
+
         </div>
         <p className="text-sm text-gray-500">
           © 2025 Edil Tech — Ristrutturazioni di Qualità e Design Italiano

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi"; // أيقونات الهامبرجر وإغلاق
 // صور الخلفية مستوحاة من إيطاليا
 const images = [
@@ -57,17 +58,16 @@ export default function Home() {
   ];
   return (
     <div className="bg-[#0a0a0a] text-white font-[Poppins] overflow-hidden">
-<header className="fixed z-50 flex items-center justify-between w-full px-3 py-1 transition-all duration-500 bg-transparent backdrop-blur-sm">
-
+<header className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-3 md:px-10">
   {/* Logo */}
   <img
     src="/assets/photo_5800903862616001287_y-removebg-preview.png"
     alt="EDIL TECH Logo"
-    className="object-contain w-14 h-14" // صغرنا من 20 لـ 14
+    className="object-contain select-none w-28 h-28 md:w-36 md:h-36"
   />
 
   {/* Navigation - Desktop */}
-  <nav className="hidden space-x-6 text-sm tracking-wider text-gray-300 uppercase md:flex">
+  <nav className="hidden space-x-8 text-base font-medium tracking-wider text-white uppercase md:flex drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
     <a href="/" className="transition-all duration-300 hover:text-red-500">Home</a>
     <a href="/about" className="transition-all duration-300 hover:text-red-500">Chi Siamo</a>
     <a href="/projects" className="transition-all duration-300 hover:text-red-500">Progetti</a>
@@ -75,14 +75,14 @@ export default function Home() {
 
   {/* Hamburger Icon - Mobile */}
   <div className="md:hidden">
-    <button onClick={toggleMenu} className="text-2xl text-gray-300 focus:outline-none">
+    <button onClick={toggleMenu} className="text-3xl text-white drop-shadow-lg focus:outline-none">
       {isOpen ? <HiX /> : <HiMenu />}
     </button>
   </div>
 
   {/* Mobile Menu */}
   {isOpen && (
-    <nav className="absolute left-0 flex flex-col items-center w-full py-2 space-y-2 text-gray-300 uppercase bg-black top-full bg-opacity-80 md:hidden">
+    <nav className="absolute left-0 flex flex-col items-center w-full py-4 space-y-3 text-lg text-white uppercase bg-black/90 top-full md:hidden">
       <a href="/" className="hover:text-red-500" onClick={toggleMenu}>Home</a>
       <a href="/about" className="hover:text-red-500" onClick={toggleMenu}>Chi Siamo</a>
       <a href="/projects" className="hover:text-red-500" onClick={toggleMenu}>Progetti</a>
@@ -114,7 +114,7 @@ export default function Home() {
           <h2 className="mb-6 text-5xl font-bold leading-tight text-white md:text-7xl">
             Trasforma i tuoi spazi con <br />
             <span className="font-extrabold drop-shadow-lg">
-              <span className="text-[#136dc2]">Edil</span>
+              <span className="text-[#0d3152]">Edil</span>
               <span className="text-[#e63946]"> Tech</span>
             </span>
 
@@ -206,7 +206,7 @@ export default function Home() {
           },
           {
             title: "Qualità e Dettagli",
-            text: "Ogni progetto è seguito con cura: materiali italiani selezionati, precisione nei dettagli e rispetto dei tempi.",
+            text: "Ogni progetto è eseguito con cura: materiali italiani selezionati, precisione nei dettagli e rispetto dei tempi.",
             img: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=1400",
           },
         ].map((sec, i) => (
@@ -240,7 +240,10 @@ export default function Home() {
         <div className="grid gap-10 md:grid-cols-3">
           {/* About */}
           <div>
-            <h4 className="mb-4 text-2xl font-bold text-red-500">Edil Tech</h4>
+            <h4 className="mb-4 text-2xl font-bold">
+              <span className="text-[#0d3e75]">Edil</span> <span className="text-red-500">Tech</span>
+            </h4>
+
             <p className="text-sm leading-relaxed">
               Realizziamo ristrutturazioni complete con passione e professionalità,
               per ambienti moderni e confortevoli.
@@ -268,9 +271,25 @@ export default function Home() {
           <div>
             <h5 className="mb-3 font-semibold text-white">Contatti</h5>
             <p>📍 Via Raffaello Sanzio, 4 – 20098 San Giuliano Milanese (MI)</p>
-            <p>📞 +39 345 11 085 82</p>
-            <p>📧 <a href="mailto:contact@ediltechis.com" className="hover:text-red-500">contact@ediltechis.com</a></p>
+
+            {/* رقم الهاتف */}
+            <p className="flex items-center gap-2">
+              📞 +39 345 11 085 82
+              <a
+                href="https://wa.me/393451108582"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-500 transition hover:text-green-400"
+              >
+                <FaWhatsapp size={20} />
+              </a>
+            </p>
+
+            <p>
+              📧 <a href="mailto:contact@ediltechis.com" className="hover:text-red-500">contact@ediltechis.com</a>
+            </p>
             <p>📧 ediltechismail@legalmail.it</p>
+
             <p className="mt-3 text-sm text-gray-400">EDIL TECH di Ismail Ashraf</p>
           </div>
         </div>
