@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const images = [
-  // ضيف هنا صورك الـ 20
   "/assets/WhatsApp Image 2025-11-10 at 1.21.06 AM.jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 1.21.07 AM.jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.32.14 AM (2).jpeg",
@@ -23,13 +22,12 @@ const images = [
   "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM.jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM (3).jpeg",
   "/assets/WhatsApp Image 2025-11-10 at 12.32.15 AM (2).jpeg",
-
 ];
 
 export default function Gallery() {
   const [current, setCurrent] = useState(0);
 
-  // سلايد شو تلقائي
+  // Auto Slider
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -39,17 +37,17 @@ export default function Gallery() {
 
   return (
     <div className="min-h-screen bg-[#0b0b0d] text-white font-[Poppins] overflow-hidden">
-      {/* ===== Header ===== */}
-<header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
-  <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
-    <img
-      src="/assets/photo_5800903862616001287_y-removebg-preview.png"
-      alt="EDIL TECH Logo"
-      className="object-contain w-16 h-16" // ← تم تصغير اللوجو من 32 إلى 16
-    />
-  </div>
-</header>
 
+      {/* ===== Header ===== */}
+      <header className="fixed top-0 left-0 z-50 w-full border-b border-gray-800 bg-black/40 backdrop-blur-md">
+        <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
+          <img
+            src="/assets/photo_5800903862616001287_y-removebg-preview.png"
+            alt="EDIL TECH Logo"
+            className="object-contain w-16 h-16"
+          />
+        </div>
+      </header>
 
       {/* ===== Slider ===== */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
@@ -61,9 +59,11 @@ export default function Gallery() {
             className={`absolute w-full h-full object-cover transition-opacity duration-[1200ms] ${
               current === index ? "opacity-100" : "opacity-0"
             }`}
-/>
+          />
         ))}
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
+
         <div className="relative z-10 text-center">
           <h2 className="mb-4 text-6xl font-extrabold">
             <span className="text-[#e63946]">Our</span>{" "}
@@ -93,9 +93,9 @@ export default function Gallery() {
               <img
                 src={src}
                 alt={`Gallery ${i + 1}`}
-                className="object-cover w-full transition-all duration-500 h-72 opacity-90 group-hover:opacity-100"
+                className="object-cover w-full h-72 opacity-90 transition-all duration-500 group-hover:opacity-100"
               />
-              <div className="absolute inset-0 flex items-end justify-center p-4 transition-all duration-500 opacity-0 bg-gradient-to-t from-black/70 via-transparent to-transparent group-hover:opacity-100">
+              <div className="absolute inset-0 flex items-end justify-center p-4 opacity-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-all duration-500 group-hover:opacity-100">
                 <p className="text-lg font-semibold tracking-wide text-white">
                   Progetto #{i + 1}
                 </p>
@@ -103,6 +103,24 @@ export default function Gallery() {
             </motion.div>
           ))}
         </div>
+
+        {/* ===== Button ===== */}
+        <motion.div
+          className="flex justify-center mt-20"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <a
+            href="PUT_YOUR_LINK_HERE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-12 py-4 text-lg font-bold text-white rounded-full
+                       bg-gradient-to-r from-[#e63946] to-[#b91c1c]
+                       shadow-xl hover:shadow-[#e63946]/60 transition-all"
+          >
+            Altre Foto
+          </a>
+        </motion.div>
       </section>
 
       {/* ===== Footer ===== */}
