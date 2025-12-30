@@ -111,7 +111,7 @@ export default function Gallery() {
           whileTap={{ scale: 0.95 }}
         >
           <a
-            href="PUT_YOUR_LINK_HERE"
+            href="https://drive.google.com/drive/folders/1hesXikcu-pMKzELb0b2ZoHnvA29vSNuC"
             target="_blank"
             rel="noopener noreferrer"
             className="px-12 py-4 text-lg font-bold text-white rounded-full
